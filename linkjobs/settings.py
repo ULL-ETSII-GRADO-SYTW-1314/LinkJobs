@@ -1,24 +1,30 @@
-# Django settings for linkjobs project.
+# Django settings for projectjobs project.
+import os
 
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+DATABASE_ENGINE = 'postgresql_psycopg2'
+DATABASE_NAME = os.path.join(SITE_ROOT, 'db')
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Javier', 'menaser89@gmail.com'),
 )
 
 MANAGERS = ADMINS
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'database.db', 
+        #'USER': ,                      # Not used with sqlite3.
+        #'PASSWORD': 'Alumno123',       # Not used with sqlite3.
+        #'HOST': 'localhost',           # Set to empty string for localhost. Not used with sqlite3.
+        #'PORT': '5432',                # Set to empty string for default. Not used with sqlite3.
     }
 }
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
