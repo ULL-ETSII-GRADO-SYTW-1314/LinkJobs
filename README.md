@@ -1,6 +1,5 @@
 # ![Logo LinkJobs](http://img853.imageshack.us/img853/2854/3088.png)
 
-**Please note: the instructions for running this project on Amazon EMR are currently incomplete.**
 
 ## Introducción
 
@@ -17,7 +16,7 @@ Assuming you already have:
 
 ## Despliegue en Heroku
 
-**Please note: this section is currently incomplete.**
+**Nota: Próximamente...**
 
 ## Autores
 
