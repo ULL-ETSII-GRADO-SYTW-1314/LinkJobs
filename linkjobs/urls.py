@@ -5,7 +5,7 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$','home_view',name='vista_home'),
+    #url(r'^$','home_view'),
 
     # Examples:
     # url(r'^$', 'linkjobs.views.home', name='home'),
