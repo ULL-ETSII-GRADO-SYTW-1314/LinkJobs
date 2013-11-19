@@ -1,6 +1,5 @@
-# ![Logo LinkJobs](http://imageshack.us/photo/my-images/853/3088.png/)
+# ![Logo LinkJobs](http://img853.imageshack.us/img853/2854/3088.png)
 
-**Please note: the instructions for running this project on Amazon EMR are currently incomplete.**
 
 ## Introducción
 
@@ -12,12 +11,15 @@ Este es un proyecto para la asignatura Sistemas y Tecnologías Web 2013-14.
 
 ## Changelog
 
-Assuming you already have:
+	11 de noviembre - 17 de noviembre: Prototipo utilizando Mocking Bird, creación logo.PSD y planificación metodología de trabajo.  
+	18 de noviembre - 24 de noviembre: Inicio del proyecto en Django, creación página Home.
+
+
 
 
 ## Despliegue en Heroku
 
-**Please note: this section is currently incomplete.**
+**Nota: Próximamente...**
 
 ## Autores
 
