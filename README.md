@@ -11,7 +11,10 @@ Este es un proyecto para la asignatura Sistemas y Tecnologías Web 2013-14.
 
 ## Changelog
 
-Assuming you already have:
+	11 de noviembre - 17 de noviembre: Prototipo utilizando Mocking Bird, creación logo.PSD y planificación metodología de trabajo.  
+	18 de noviembre - 24 de noviembre: Inicio del proyecto en Django, creación página Home.
+
+
 
 
 ## Despliegue en Heroku
