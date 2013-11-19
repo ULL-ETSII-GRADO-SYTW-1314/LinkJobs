@@ -1,4 +1,4 @@
-# ![Logo LinkJobs](http://imageshack.us/photo/my-images/853/3088.png/)
+# ![Logo LinkJobs](http://img853.imageshack.us/img853/2854/3088.png)
 
 **Please note: the instructions for running this project on Amazon EMR are currently incomplete.**
 
