@@ -5,6 +5,8 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^$','home_view',name='vista_home'),
+
     # Examples:
     # url(r'^$', 'linkjobs.views.home', name='home'),
     # url(r'^linkjobs/', include('linkjobs.foo.urls')),
