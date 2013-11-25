@@ -10,5 +10,7 @@ urlpatterns = patterns('home.views',
     url (r'^login/$','login',name='vista_login'),
     url (r'^contact/$','contact_view',name='vista_contacto'),
     url (r'^faq/$','faq_view',name='vista_faq'),
+    url (r'^help/$','help_view',name='vista_ayuda'),
+
 
 )
