@@ -2,12 +2,8 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from home.forms import UserForm, LoginForm
 
-
 def home_view(request):
 	return render_to_response('home/index.html',context_instance=RequestContext(request))
-
-# def help_view(request):
-#   return render_to_response('home/help.html',context_instance=RequestContext(request))
 
 def about_view(request):
   return render_to_response('home/about.html',context_instance=RequestContext(request))
@@ -27,7 +23,7 @@ def faq_view(request):
 def help_view(request):
   return render_to_response('home/ayuda.html',context_instance=RequestContext(request))
 
-def signup(request):
+def signup_view(request):
   password1 = ""
   password2 = ""
   nombre = ""
@@ -62,7 +58,7 @@ def signup(request):
   ctx = {'formulario':formulario}
   return render_to_response ('home/signup.html',ctx,context_instance=RequestContext(request))
   
-def login (request):
+def login_view (request):
   password = ""
   username = ""
   if request.method == "POST":
