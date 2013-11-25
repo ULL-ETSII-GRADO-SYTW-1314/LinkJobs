@@ -11,6 +11,9 @@ def home_view(request):
 def about_view(request):
   return render_to_response('home/about.html',context_instance=RequestContext(request))
 
+def privacidad_view(request):
+  return render_to_response('home/privacidad.html',context_instance=RequestContext(request))
+
 
 # def signup(request):
   # password1 = ""
