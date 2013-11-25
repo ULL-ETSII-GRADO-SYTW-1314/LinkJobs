@@ -53,3 +53,18 @@ def signup(request):
   ctx = {'formulario':formulario}
   return render_to_response ('home/signup.html',ctx,context_instance=RequestContext(request))
   
+  def login (request):
+    password = ""
+    username = ""
+    if request.method == "POST":
+        formulario = LoginForm(request.POST)
+        if formulario.is_valid():
+            m = User.objects.get(username=request.POST['username'])
+            username = formulario.cleaned_data['username']
+            request.session['username'] = m.username
+            return HttpResponseRedirect(reverse('appstatic.views.user_details', args=[m.username]))
+
+    else:
+        formulario = LoginForm()
+    ctx = {'formulario':formulario}
+    return render_to_response ('home/login.html', ctx,context_instance=RequestContext(request))

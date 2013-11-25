@@ -8,4 +8,5 @@ urlpatterns = patterns('home.views',
     url(r'^terminos/$','terminos_view',name='vista_terminos'),
 
     url (r'^signup/$','signup',name='vista_signup'),
+    url (r'^login/$','login',name='vista_login'),
 )
