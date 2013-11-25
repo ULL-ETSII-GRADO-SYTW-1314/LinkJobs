@@ -14,6 +14,9 @@ def about_view(request):
 def privacidad_view(request):
   return render_to_response('home/privacidad.html',context_instance=RequestContext(request))
 
+def terminos_view(request):
+  return render_to_response('home/terminos.html',context_instance=RequestContext(request))
+
 
 # def signup(request):
   # password1 = ""
