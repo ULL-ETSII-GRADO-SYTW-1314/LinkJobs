@@ -1,6 +1,9 @@
 from django.db import models
 from time import time
 import re
+
+def get_upload_image(self,filename):
+	return "media/%s/%s" %( self.username, filename)
  
 class User(models.Model):
 	nombre		= models.CharField(max_length=30)
