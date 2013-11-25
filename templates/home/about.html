@@ -1,0 +1,80 @@
+{% extends 'home/base.html' %}
+
+{% block titulo %} - Acerca de nosotros {% endblock %}
+
+{% block encabezado %}
+<!-- Start: Navigation wrapper -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="{% url vista_home %}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+      <!-- Below button used for responsive navigation -->
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Start: Primary navigation -->
+      <div class="nav-collapse collapse">        
+        <ul class="nav pull-right">
+          <li><p><br/> ¿Ya tienes una cuenta?</p></li>
+          <li><a href="{% url vista_login %}">Iniciar sesión</a></li> 
+        </ul>
+      </div>
+    </div>   
+  </div>
+</div>
+<!-- End: Navigation wrapper -->
+{% endblock %}
+
+{% block contenido %}
+<div class="contenido">
+  <div class="container">
+        <!-- Start: Product description -->
+        <airticle class="article">
+          <div class="row bottom-space">
+            <div class="span12">
+              <div class="page-header">
+                <h1>Equipo DJES <small>Acerca de nosotros</small></h1>
+              </div>
+            </div>
+
+            <div class="span12 center-align">
+              <div class="span10 offset1">
+              <p>
+                LinkJobs es una red social enfocada al empleo
+              </p>
+              
+            </div>
+                <p>FOtito de grupo<p>            
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10 offset1">
+              <p align=justify >
+                En esta aplicación usted podra disfrutar de una comunidad de usuarios que compartirán información a traves de micropost, fotos, y además podrá publicar su curriculum online e indicar el puesto para el que se ofrece. De la misma manera si usted tiene una empresa podrá registrarse para así publicitar su negocio y al mismo tiempo publicar sus ofertas de empleo, buscando entre los usuarios de nuestra red social al candidato perfecto para su vacante.
+              </p>
+                      
+              <div class="span8 offset1">
+                <h3>Equipo LinkJobs:</h3>
+                <ul class="features">
+                  <li>
+                    <i class="icon-user "></i>Eduardo Delgado Álvarez
+                  </li>
+                  <li>
+                    <i class="icon-user "></i>Javier Mena Mena
+                  </li>
+                  <li>
+                    <i class="icon-user "></i>Diego Williams Aguilar Montaño
+                  </li>                 
+                </ul>
+              </div>                                              
+            </div>      
+          </div>
+          
+          <br>
+        </airticle>
+        <!-- End: Product description -->
+      </div>
+</div>
+{% endblock %}
