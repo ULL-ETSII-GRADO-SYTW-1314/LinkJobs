@@ -5,7 +5,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href=""><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+      <a class="brand" href="{% url vista_home %}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
       <!-- Below button used for responsive navigation -->
       <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
@@ -16,7 +16,7 @@
       <div class="nav-collapse collapse">        
         <ul class="nav pull-right">
           <li><p><br/> ¿Ya tienes una cuenta?</p></li>
-          <li><a href="">Iniciar sesión</a></li> 
+          <li><a href="{% url vista_login %}">Iniciar sesión</a></li> 
         </ul>
       </div>
     </div>   
@@ -38,19 +38,19 @@
                 <div class="slide">
                   <h2><img src="/static/img/logoLinkJobs.png" width="260" height="40" alt="LinkJobs logo"/></h2>
                   <p>Descubre el puesto de trabajo que tanto buscas.</p>
-                  <q><a href="" class="big2btn">Únete a LinkJobs</a></q>
+                  <q><a href="{% url vista_signup %}" class="big2btn">Únete a LinkJobs</a></q>
                   <img src="/static/img/pic1.jpg" alt="banner1" /> 
                 </div>
                 <div class="slide">
                   <h2>Conecta tu CV</h2>
                   <p>Busca las empresas en las que te gustaría trabajar en 140 caracteres.</p>
-                  <q><a href="" class="big2btn">Únete a LinkJobs</a></q>
+                  <q><a href="{% url vista_signup %}" class="big2btn">Únete a LinkJobs</a></q>
                   <img src="/static/img/pic2.jpg" alt="banner2" /> 
                 </div>
                 <div class="slide">
                   <h2>Conecta tu empresa</h2>
                   <p>Busca el candidato ideal para el puesto de trabajo que ofertas.</p>
-                  <q><a href="" class="big2btn">Únete a LinkJobs</a></q>
+                  <q><a href="{% url vista_signup %}" class="big2btn">Únete a LinkJobs</a></q>
                   <img src="/static/img/pic3.jpg" alt="banner3" /> 
                 </div>
               </div>

@@ -1,0 +1,58 @@
+{% extends 'home/base.html' %}
+
+{%block encabezado %}
+<!-- Start: Navigation wrapper -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="{% url vista_home %}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+      <!-- Below button used for responsive navigation -->
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Start: Primary navigation -->
+      <div class="nav-collapse collapse">        
+        <ul class="nav pull-right">
+          <li><p><br/> ¿Ya tienes una cuenta?</p></li>
+          <li><a href="{% url vista_login %}">Iniciar sesión</a></li> 
+        </ul>
+      </div>
+    </div>   
+  </div>
+</div>
+<!-- End: Navigation wrapper -->
+{% endblock %}
+
+
+{%block contenido %}
+<div class="contenido">
+  <div class="container">
+        <div class="row">
+          </br>
+          <div class="span6 offset3">
+            <h4 class="widget-header"><i class="icon-gift"></i> Crea tu cuenta</h4>
+            <div class="widget-body">
+              <div class="center-align">
+                <form class="form-horizontal form-signin-signup" action="." method="post">
+                  {%csrf_token%}
+                  {{formulario.as_p}}
+                  <div class="remember-me">
+                    <div class="pull-left">
+                      <p style="font-size:14px">Al crear una cuenta, acepto las Condiciones del servicio y la Política de privacidad de LinkJobs.</p>
+                    </div>
+                    <div class="clearfix"></div>            	
+                  </div>
+                  <input type="submit" value="Crear Cuenta" class="btn btn-primary btn-large">
+                </form>
+                <h4><i class="icon-question-sign"></i> ¿Ya tienes una cuenta?</h4>
+                <a href="{% url vista_login%}" class="btn btn-large bottom-space">Inicia sesión en LinkJobs</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </br>
+      </div>
+</div>
+{% endblock %}
