@@ -1,0 +1,88 @@
+{% extends 'home/base.html' %}
+
+{% block titulo %} - Contacto {% endblock %}
+
+{%block encabezado %}
+<!-- Start: Navigation wrapper -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="{% url vista_home %}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+      <!-- Below button used for responsive navigation -->
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Start: Primary navigation -->
+      <div class="nav-collapse collapse">        
+        <ul class="nav pull-right">
+          <li><p><br/> ¿Ya tienes una cuenta?</p></li>
+          <li><a href="{% url vista_login %}">Iniciar sesión</a></li> 
+        </ul>
+      </div>
+    </div>   
+  </div>
+</div>
+<!-- End: Navigation wrapper -->
+{% endblock %}
+
+{% block contenido %}
+<div class="contenido">  
+  <div class="container">
+    <div class="page-header">
+      <h1>Contacta con nosotros</h1>
+    </div>
+    <div class="row-fluid">
+      <!-- Start: CONTACT US FORM -->
+      <div class="span4 offset1">
+        <div class="page-header">
+          <h2>Mensaje Rápido</h2>
+        </div>
+        <form class="form-contact-us">
+          <div class="control-group">
+            <div class="controls">
+              {% if valido %}
+                <h2>Gracias por enviar el cuestionario.</h2>
+              {% else %}
+                <form action='.' method='POST'>
+                  {% csrf_token %}
+                  {{ formulario.as_p }}
+                  <p><input type='submit' class="btn btn-primary btn-large" value='Enviar'/> 
+                  <input type='reset' class="btn btn-primary btn-large" value='Limpiar'/></p>
+                </form>
+              {% endif %}
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- End: CONTACT US FORM -->
+      <!-- Start: OFFICES -->
+          <div class="span5 offset1">
+            <div class="page-header">
+              <h2>Contacto</h2>
+            </div>
+            <h3>España</h3>
+            <div>
+              <address class="pull-left">
+                <strong>LinkJobs, Inc.</strong><br>
+                Avenida 3 de Mayo, 11<br>
+                Tenerife, Islas Canarias<br>
+              </address>
+              <div class="pull-right">
+                <div class="bottom-space">
+                  <i class="icon-phone icon-large"></i> (34) 922-123456
+                </div>
+                <a href="mailto:linkjobsull@gmail.com" class="contact-mail">
+                  <i class="icon-envelope icon-large"></i> linkjobsull@gmail.com
+                </a> 
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            
+          </div>
+      <!-- End: OFFICES -->
+    </div>
+  </div>
+</div>
+{% endblock %}
