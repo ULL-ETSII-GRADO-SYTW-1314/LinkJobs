@@ -12,10 +12,10 @@ def home_view(request):
 def about_view(request):
   return render_to_response('home/about.html',context_instance=RequestContext(request))
 
-def privacidad_view(request):
+def privacity_view(request):
   return render_to_response('home/privacidad.html',context_instance=RequestContext(request))
 
-def terminos_view(request):
+def terms_of_use_view(request):
   return render_to_response('home/terminos.html',context_instance=RequestContext(request))
 
 def signup(request):
