@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from home.forms import UserForm
 
 
 def home_view(request):
