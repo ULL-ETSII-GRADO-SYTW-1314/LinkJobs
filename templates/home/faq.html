@@ -1,0 +1,80 @@
+{% extends 'home/base.html' %}
+
+{% block titulo %} - FAQ {% endblock %}
+
+{%block encabezado %}
+<!-- Start: Navigation wrapper -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="{% url vista_home %}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+      <!-- Below button used for responsive navigation -->
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Start: Primary navigation -->
+      <div class="nav-collapse collapse">        
+        <ul class="nav pull-right">
+          <li><p><br/> ¿Ya tienes una cuenta?</p></li>
+          <li><a href="{% url vista_login %}">Iniciar sesión</a></li> 
+        </ul>
+      </div>
+    </div>   
+  </div>
+</div>
+<!-- End: Navigation wrapper -->
+{% endblock %}
+
+{% block contenido %}
+<div class="contenido">   
+<div class="container">
+<h1>Preguntas frecuentes</h1><br>
+			<div>
+			    <h4>1. ¿Como me registro en LinkJobs?</h4>
+			  <div>
+				  <p>  Para registrarte desde la web, tienes varias opciones:<br><br>
+				   Entra en www.linkjobs.com y haz clic en Únete a LinkJobs. Rellena el formulario en el que te pediremos nombre, 					apellidos, email, nombre de usuario, fecha de nacimiento, número de teléfono y contraseña. Una vez hecho esto, tu cuenta 					quedará creada y podrás acceder a LinkJobs. Te enviaremos un email al correo que nos has indicado para confirmar 					registro.<br>
+   				Si tienes un amigo en LinkJobs, puedes pedirle que te envíe una invitación. Recibirás un email con un enlace que te 					llevará al formulario de registro.<br> 
+			   Si has intentado registrarte y no lo has conseguido o no has recibido el correo de confirmacion, escríbenos en la sección de 				Contacto.<br>
+
+				<br>¡Bienvenido a LinkJobs!</p><br>
+			</div>
+                        </div>
+			   
+		    	<div>
+			    <h4>2. ¿Como cambio mis datos personales y preferencias?</h4>
+
+			<div>En la esquina superior derecha de LinkJobs, haz clic en la flecha desplegable y entra en 
+			<a href="http://0.0.0.0:8000/"><em>Configuraci&oacute;n</em></a>. Una vez ah&iacute;, podr&aacute;s acceder a:</div>
+			<ul>
+			<li>
+			<strong>Informaci&oacute;n personal</strong>: donde podr&aacute;s cambiar tu foto de perfil, lugar de residencia, lugar de origen, 				estado sentimental y p&aacute;ginas web.</li>
+			<li>
+			<strong>Intereses</strong>: para indicar tus aficiones, empleos a los que te dedicas, actitudes, etc.</li>
+			<li>
+			<strong>Privacidad</strong>: aqu&iacute; podr&aacute;s decidir si autorizas a tus amigos a ver tu tabl&oacute;n, descargar tus 				fotos o ver tu tel&eacute;fono. Tambi&eacute;n ver&aacute;s ah&iacute; los usuarios y fotos que has bloqueado y podr&aacute;s 				desbloquearlos.</li>
+			<li>
+			<strong>Twitter</strong>: para vincular tu cuenta de LinkJobs a Twitter. De este modo, cuando compartas un momento en LinkJobs 				podr&aacute;s decidir si tambi&eacute;n lo quieres publicar en Twitter.</li>
+			<li>
+			<strong>Notificaciones por email</strong>: para activar o desactivar los emails con novedades que te podemos enviar cuando llevas 				unos d&iacute;as sin entrar en LinkJobs.</li>
+			<li>
+			<strong>Cuenta</strong>: aqu&iacute; podr&aacute;s cambiar tu email, contrase&ntilde;a, idioma, fecha de nacimiento, tu nombre y 				tu tel&eacute;fono. Tambi&eacute;n puedes eliminar tu agenda de tu tel&eacute;fono y desactivar tu cuenta.</li>
+			</p><br>
+			</div>
+
+
+		        <div>
+			    <h4>3. ¿Que es LinkJobs?</h4>
+			</div>
+		    	   <div>
+			  <p>LinkJobs es una red social enfocada al empleo.</p>
+			<p>En esta aplicación usted podra disfrutar de una comunidad de usuarios que compartirán información a traves de micropost, fotos, 				y además podrá publicar su curriculum online e indicar el puesto para el que se ofrece. De la misma manera si usted tiene una 				empresa podrá registrarse para así publicitar su negocio y al mismo tiempo publicar sus ofertas de empleo, buscando entre los 				usuarios de nuestra red social al candidato perfecto para su vacante.</p><br>
+			</div>
+  </div>
+ </div>
+{% endblock %}
+
+
+
