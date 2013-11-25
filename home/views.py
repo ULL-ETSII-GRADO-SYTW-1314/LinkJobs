@@ -18,6 +18,9 @@ def privacity_view(request):
 def terms_of_use_view(request):
   return render_to_response('home/terminos.html',context_instance=RequestContext(request))
 
+def contact_view(request):
+  return render_to_response('home/contacto.html',context_instance=RequestContext(request))
+
 def signup(request):
   password1 = ""
   password2 = ""
