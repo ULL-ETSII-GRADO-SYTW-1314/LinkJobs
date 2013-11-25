@@ -1,0 +1,110 @@
+{% extends 'GUsers/base.html' %}
+
+{% block titulo %} - Ayuda {% endblock %}
+
+{% block encabezado %}
+<!-- Start: Navigation wrapper -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="{% url vista_home %}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+      <!-- Below button used for responsive navigation -->
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Start: Primary navigation -->
+      <div class="nav-collapse collapse">        
+        <ul class="nav pull-right">
+          <li><p><br/> ¿Ya tienes una cuenta?</p></li>
+          <li><a href="{% url vista_login %}">Iniciar sesión</a></li> 
+        </ul>
+      </div>
+    </div>   
+  </div>
+</div>
+<!-- End: Navigation wrapper -->
+{% endblock %}
+
+
+{% block contenido %}
+<div class="contenido">
+<div class="container">
+        <!-- Start: Product description -->
+        <airticle class="article">
+          <div class="row bottom-space">
+            <div class="span12">
+              <div class="page-header">
+                <h1>¡Hola! <small>¿Necesitas ayuda?</small></h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="span10 offset1">
+              <h3>Cómo registrarse:</h3>
+              <p align=justify>
+                Para registrarte desde la web, debes seguir los siguientes pasos:<br></p>
+              <ul class="features">
+                  <li>
+                    1. Entra en www.linkjobs.com y haz clic en Únete a LinkJobs.
+                  </li>
+                  <li>
+                    2. Rellena el formulario en el que te pediremos nombre, apellidos, email, nombre de usuario, fecha de nacimiento, número de teléfono y contraseña. Una vez hecho esto, tu cuenta quedará creada y podrás acceder a LinkJobs.
+                  </li>
+                  <li>
+                    3. Te enviaremos un email al correo que nos has indicado para confirmar registro.
+                  </li>
+                  <li>
+                    4. Si tienes un amigo en LinkJobs, puedes pedirle que te envíe una invitación. Recibirás un email con un enlace que te llevará al formulario de registro.
+                  </li>
+                  <li>
+                    5. Si has intentado registrarte y no lo has conseguido o no has recibido el correo de confirmacion, escríbenos en la sección de Contacto.
+                  </li>                 
+                </ul>
+              <br>
+              <h3>Cómo publicar un Post:</h3>
+              <p align=justify>
+                Para publicar un Post desde tu perfil, debes seguir los siguientes pasos:<br></p>
+              <ul class="features">
+                  <li>
+                    1. Inicia sesión en tu cuenta de Twitter.
+                  </li>
+                  <li>
+                    2. Escribe tu Post en el recuadro de la parte superior de tu pantalla o haz clic en el botón azul de publicar un nuevo Post en la parte superior de tu pantalla. 
+                  </li>
+                  <li>
+                    3. Asegúrate que tu actualización tenga menos de 140 caracteres. ¡Contamos los caracteres por ti! Los caracteres restantes se muestran como un número debajo de la caja de texto.
+                  </li>
+                  <li>
+                    4. Haz clic en el botón para Postear para publicar el Post en tu perfil. 
+                  </li>
+                  <li>
+                    5. Inmediatamente verás tu Tweet en la cronología de tu página de inicio.
+                  </li>                 
+                </ul>
+
+              <br>
+              <h3>Cómo eliminar un Post:</h3>
+              <p align=justify>
+              Para eliminar un post, ten en cuenta que sólo puedes eliminar Tweets que hayas publicado desde tu cuenta.
+              No puedes eliminar Tweets que hayan sido publicados por otras cuentas. En vez de ello, puedes dejar de seguir o bloquear usuarios cuyos Tweets no desees recibir.</p>
+            <p align=justify>Si intentas eliminar un Retweet, lee este artículo para aprender más sobre eliminar Retweets.        
+            </p>
+
+
+            </div>      
+          </div>
+          <div class="row">
+            <hr>
+          </div>
+        </airticle>
+
+      </br></br>
+        <!-- End: Product description -->
+      </div>
+</div>
+{% endblock %}
+
+
