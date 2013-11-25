@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from home.forms import UserForm
+from home.forms import UserForm, LoginForm
 
 
 def home_view(request):
@@ -53,18 +53,18 @@ def signup(request):
   ctx = {'formulario':formulario}
   return render_to_response ('home/signup.html',ctx,context_instance=RequestContext(request))
   
-  def login (request):
-    password = ""
-    username = ""
-    if request.method == "POST":
-        formulario = LoginForm(request.POST)
-        if formulario.is_valid():
-            m = User.objects.get(username=request.POST['username'])
-            username = formulario.cleaned_data['username']
-            request.session['username'] = m.username
-            return HttpResponseRedirect(reverse('appstatic.views.user_details', args=[m.username]))
+def login (request):
+  password = ""
+  username = ""
+  if request.method == "POST":
+      formulario = LoginForm(request.POST)
+      if formulario.is_valid():
+          m = User.objects.get(username=request.POST['username'])
+          username = formulario.cleaned_data['username']
+          request.session['username'] = m.username
+          return HttpResponseRedirect(reverse('appstatic.views.user_details', args=[m.username]))
 
-    else:
-        formulario = LoginForm()
-    ctx = {'formulario':formulario}
-    return render_to_response ('home/login.html', ctx,context_instance=RequestContext(request))
+  else:
+      formulario = LoginForm()
+  ctx = {'formulario':formulario}
+  return render_to_response ('home/login.html', ctx,context_instance=RequestContext(request))

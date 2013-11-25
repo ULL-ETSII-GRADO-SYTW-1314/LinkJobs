@@ -4,7 +4,10 @@ import os, sys
 from django import forms
 from home.models import User
 
-
+class LoginForm(forms.Form):
+    username  = forms.RegexField(label="Nombre de Usuario", max_length=30, regex=r'^[\w.@+-]+$', error_messages = {'invalid': "Este valor sólo puede contener letras, números y caracteres @/./+/-/_"})
+    password  = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+    
 class ContactForm(forms.Form):
    email= forms.EmailField(label="Email",widget=forms.TextInput())
    asunto= forms.CharField(label="Asunto",widget=forms.TextInput())
