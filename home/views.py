@@ -24,6 +24,9 @@ def contact_view(request):
 def faq_view(request):
   return render_to_response('home/faq.html',context_instance=RequestContext(request))
 
+def help_view(request):
+  return render_to_response('home/ayuda.html',context_instance=RequestContext(request))
+
 def signup(request):
   password1 = ""
   password2 = ""
