@@ -7,5 +7,5 @@ urlpatterns = patterns('home.views',
     url(r'^privacidad/$','privacidad_view',name='vista_priva'),
     url(r'^terminos/$','terminos_view',name='vista_terminos'),
 
-    # url (r'^signup/$','signup',name='vista_signup'),
+    url (r'^signup/$','signup',name='vista_signup'),
 )
