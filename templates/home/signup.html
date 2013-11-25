@@ -16,7 +16,7 @@
       <div class="nav-collapse collapse">        
         <ul class="nav pull-right">
           <li><p><br/> ¿Ya tienes una cuenta?</p></li>
-          <li><a href="">Iniciar sesión</a></li> 
+          <li><a href="{% url vista_login %}">Iniciar sesión</a></li> 
         </ul>
       </div>
     </div>   
@@ -47,7 +47,7 @@
                   <input type="submit" value="Crear Cuenta" class="btn btn-primary btn-large">
                 </form>
                 <h4><i class="icon-question-sign"></i> ¿Ya tienes una cuenta?</h4>
-                <a href="" class="btn btn-large bottom-space">Inicia sesión en LinkJobs</a>
+                <a href="{% url vista_login%}" class="btn btn-large bottom-space">Inicia sesión en LinkJobs</a>
               </div>
             </div>
           </div>
