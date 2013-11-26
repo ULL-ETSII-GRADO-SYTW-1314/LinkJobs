@@ -13,7 +13,7 @@ Este es un proyecto para la asignatura Sistemas y Tecnologías Web 2013-14.
 
 	11 - 17 de noviembre: Prototipo utilizando Mocking Bird, creación logo.PSD y planificación metodología de trabajo.  
 	18 - 24 de noviembre: Inicio del proyecto en Django, creación página Home (index.html).  
-	25 - 30 de noviembre: Creación de vistas y páginas about, ayuda, contacto, faq, login, privacidad, signup, terminos. 
+	25 - 30 de noviembre: Creación de vistas y páginas about, ayuda, contacto, faq, login, privacidad, signup y terminos. Creación del modelo de datos para el usuario. 
 
 
 
