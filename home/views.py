@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from home.forms import UserForm, LoginForm
+from home.forms import UserForm, LoginForm, ContactForm
 
 def home_view(request):
 	return render_to_response('home/index.html',context_instance=RequestContext(request))
@@ -15,7 +15,31 @@ def terms_of_use_view(request):
   return render_to_response('home/terminos.html',context_instance=RequestContext(request))
 
 def contact_view(request):
-  return render_to_response('home/contacto.html',context_instance=RequestContext(request))
+    valido = False
+    email = ""
+    asunto = ""
+    texto = ""
+    if request.method == "POST":
+        formulario = ContactForm(request.POST)
+        if formulario.is_valid():
+           valido = True
+           email = formulario.cleaned_data['email']
+           asunto = formulario.cleaned_data['asunto']
+           texto = formulario.cleaned_data['texto']
+           #configuracion enviando mensaje via GMAIL
+           to_admin = 'linkjobsull@gmail.com' #el password de esta cuenta esta en el google drive 
+           html_content = "Informacion recibida <br><br><br>***MENSAJE***<br><br>%s" % (texto)
+           msg= EmailMultiAlternatives('Correo de Contacto',html_content,'from@server.com', [to_admin])
+          # SUBJECT,CONTENT,DESTINATARIO
+           msg.attach_alternative(html_content,'text/html') #definimos el contenido como html
+           msg.send() #enviamos
+           #fin configuracion del servidor GMAIL
+           ctx = {'formulario':formulario,'email':email,'asunto':asunto,'texto':texto,'valido':valido}
+           return render_to_response ('home/contacto.html',ctx,context_instance=RequestContext(request))
+    else:
+        formulario = ContactForm()
+    ctx = {'formulario':formulario,'email':email,'asunto':asunto,'texto':texto,'valido':valido}
+    return render_to_response ('home/contacto.html',ctx,context_instance=RequestContext(request))
 
 def faq_view(request):
   return render_to_response('home/faq.html',context_instance=RequestContext(request))
