@@ -34,6 +34,45 @@
   </head>
   
   <body>
- 
+    <!-- Start: HEADER -->
+    <header>
+      {% block encabezado %}
+      <!-- Start: Navigation wrapper -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="{}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+            <!-- Start: Primary navigation -->
+            <div class="nav-collapse collapse">        
+              <ul class="nav pull-left">
+		            <li><a href="{}">Mi Perfil</a></li>
+		            <li><a href="{}">Following</a></li>
+                <li><a href="{}">Followers</a></li>
+              </ul>
+              <ul class="nav pull-right">
+                <li><a href="{}">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </div>   
+        </div>
+      </div>
+      <!-- End: Navigation wrapper -->
+      {% endblock %} 
+    </header> 
+    <!-- End: HEADER -->
+
+    {% block contenido %}
+    <!-- Start: MAIN CONTENT -->
+    <div class="content">
+      
+    </div>
+    <!-- End: MAIN CONTENT -->
+    {% endblock %}
+    
+
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/boot-business.js"></script>
   </body>
 </html>
