@@ -1,9 +1,7 @@
-
-from django.conf.urls.defaults import patterns,url
-from django.conf import settings
+from django.conf.urls.defaults import *
 
 urlpatterns=patterns('perfil.views',
-	url (r'^/perfil/$','profile_view',name='vista_perfil'),
+	url (r'^profile/$','profile_view',name='vista_perfil'),
 )
 
 
