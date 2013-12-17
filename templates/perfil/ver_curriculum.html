@@ -1,0 +1,70 @@
+{% extends 'perfil/base.html' %}
+
+{% block titulo %} Log In {% endblock %}
+
+
+{% block contenido %}
+<div class="contenido">
+<div class= container-fluid>
+  <div class="row-fluid">
+    <div class="span10">
+      <div class= span4 align = left>
+        <br>
+        <a href="{% url vista_subirImagen user.username %}"><img src="/static/{{user.photo}}" width="200" height="100" class="img-rounded" /> </a>
+        <br>
+        {% if valido %}
+          <form method="post" enctype="multipart/form-data">
+            {%csrf_token %}
+            {{FormularioImagen.photo}}
+            <input id="boton_subir" type="submit" value="Subir" class="btn btn-small btn-primary" align="middle"/>
+            <a href="{% url vista_perfil user.username %}"><input id="boton_cerrar" value="Cerrar" class="btn btn-small btn-primary"/> </a>
+          </form>
+
+        {% endif %}
+        <br>
+        <p>Nombre: {{user.nombre}}</p>
+        <p>Apellidos: {{user.apellidos}}</p>
+        <p>Email: {{user.email1}}</p>
+        {% if user.profesion != "" %}
+          <p>Profesion: {{user.profesion}}</p>
+        {% endif %}
+
+        {%if completado %}        
+          <a href="{% url vista_curriculum user.username completado %}"><input value="Añade tu Curriculum" class="btn btn-small btn-primary"/> </a>
+        {% endif %}
+
+      </div>
+
+      <div class= span6 align= left>
+        <h1> Tu curriculum </h1>
+        <p>{{user.curriculum}}</p>
+        {% if user.curriculum != "" %}
+          <a href="{% url vista_curriculum user.username completado %}"><input value="Modificar" class="btn btn-small btn-primary"/> </a>
+        {% endif %}
+      </div>
+    </div>
+
+
+    <div class= span2 align= left>
+      <h4>Buscador</h4>
+      <form class="form-search">
+        <input type="text" class="input-medium search-query">
+        <br>
+        <br>
+        <button type="submit" class="btn">Buscar</button>
+      </form>  
+      <h4> Sugerencias </h4>
+      <hr>
+      {% for c in allUser %}
+        <p><a> <img src="/static/{{c.photo}}" width="30" height="20" class="img-rounded"/></a> {{c.nombre}} {{c.apellidos}}</p>
+        <p>{{c.profesion}}<p>
+        <a href="{% url vista_seguir user.username c.id %}"><button class="btn btn-mini btn-primary" type="button" align = left >Seguir</button></a>
+        <hr>
+      {%endfor%}
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+
