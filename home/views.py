@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from home.forms import UserForm, LoginForm, ContactForm
+from home.models import User
 
 def home_view(request):
 	return render_to_response('home/index.html',context_instance=RequestContext(request))
