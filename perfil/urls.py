@@ -12,6 +12,7 @@ urlpatterns=patterns('perfil.views',
 	url (r'^(?P<username>\w+)/seguir/(?P<id>\w+)$','seguir',name='vista_seguir'),
 	url (r'^(?P<username>\w+)/sigues_a/$','quien_sigues',name='vista_quien_sigues'),
 	url (r'^borrar/(?P<id>\w+)/$','borrar_post',name='vista_borrarpost'),
+	url (r'^(?P<username>\w+)/no_seguir/(?P<id>\w+)$','noseguir',name='vista_de_noseguir'),
 )
 
 
