@@ -9,6 +9,29 @@ from datetime import datetime
 
 def quien_sigues (request, username):
 	if antesdeLogin(request):
+		post = ""
+		valido = False;
+		completado = False;
+		FormularioImagen = ImagenForm(request.POST, request.FILES)
+		user = get_object_or_404 (User,username=request.session['username'])
+		if user.curriculum == "":
+			completado = True
+		allUser = User.objects.order_by('?').exclude(username=request.session['username'])[:4]
+
+		id_seguidores = Follow.objects.filter(user = user.id).values_list('follow', flat=True)
+		seguidores = User.objects.filter(id__in=id_seguidores)
+		
+		if request.method == 'POST':
+			if FormularioImagen.is_valid():
+				photo = FormularioImagen.cleaned_data['photo']
+				user.InsertarFoto(photo)
+				user.save()
+				ctx = {'seguidores': seguidores, 'completado':completado,'user':user, 'allUser': allUser, 'FormularioImagen': FormularioImagen, 'valido': valido}
+				return render (request,'perfil/sigues.html',ctx)
+		else:
+			FormularioImagen = ImagenForm()
+		ctx = {'seguidores':seguidores, 'completado':completado,'valido': valido, 'allUser':allUser, 'user':user, 'FormularioImagen':FormularioImagen}
+		return render (request,'perfil/sigues.html',ctx)
 	else:
 		HttpResponseRedirect(reverse('home.views.home_view'))
 
