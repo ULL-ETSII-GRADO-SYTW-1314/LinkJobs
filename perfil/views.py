@@ -10,8 +10,18 @@ from datetime import datetime
 def ver_su_curriculum(request, username, id):
 	if antesdeLogin(request):
 		user = get_object_or_404 (User,id=id)
+		user_sug = get_object_or_404 (User, username= request.session['username'])
+		allUser = User.objects.order_by('?').exclude(username=request.session['username'])[:4]
 
+		comprobacion = Follow.objects.filter(user=user_sug.id).filter(follow=id)
+
+		if not comprobacion:
+			return HttpResponse("No puedes acceder aqui")
+		else:
+			ctx = {'user_sug':user_sug, 'user':user, 'allUser': allUser}
+			return render (request,'perfil/su_curriculum.html',ctx)
 	else:
+		HttpResponseRedirect(reverse('home.views.home_view'))
 
 
 
