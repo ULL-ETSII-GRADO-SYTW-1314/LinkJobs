@@ -124,7 +124,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'lettuce.django',
     'home',
+    'perfil',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -157,3 +159,10 @@ LOGGING = {
         },
     }
 }
+
+#configuracion del servidor de correo GMAIL
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'linkjobsull@gmail.com'
+EMAIL_HOST_PASSWORD = 'Alumno123'
+EMAIL_USE_TLS = True
