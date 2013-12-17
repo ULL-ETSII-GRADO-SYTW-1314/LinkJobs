@@ -1,6 +1,11 @@
-# Create your views here.
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404, render
+from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpRequest
+from perfil.forms import FormMicropost
+from home.forms import UserForm, ImagenForm, CompleteForm
 from django.template import RequestContext
+from django.core.urlresolvers import reverse
+from home.models import User, Follow, Micropost
+from datetime import datetime
 
 def antesdeLogin(request):
 	if 'username' in request.session:
@@ -26,8 +31,8 @@ def user_details(request,username):
 				today = datetime.now()
 				m.insertar(user,post,today)
 				m.save()
-				#id_post = Micropost.objects.filter(user = user.id).values_list('post', flat=True)
-				#Mostrar = User.objects.filter(id__in=id_post)
+				id_post = Micropost.objects.filter(user = user.id).values_list('post', flat=True)
+				Mostrar = User.objects.filter(id__in=id_post)
 				Mostrar = Micropost.objects.filter(user=user.id).order_by('id')
 				print Mostrar
 				ctx = {'completado': completado, 'valido': valido, 'allUser':allUser, 'MicroPost':MicroPost, 'user':user, 'Mostrar': Mostrar}
