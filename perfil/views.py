@@ -7,6 +7,19 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+def subirimagen(request, username):
+	if antesdeLogin(request):
+		post = ""
+		valido = True;
+		completado = False;
+		MicroPost = FormMicropost(request.POST)
+		FormularioImagen = ImagenForm(request.POST, request.FILES)
+		user = get_object_or_404 (User,username=request.session['username'])
+	else
+		HttpResponseRedirect(reverse('home.views.home_view'))
+
+
+
 def antesdeLogin(request):
 	if 'username' in request.session:
 		return True
