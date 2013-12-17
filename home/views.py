@@ -103,3 +103,11 @@ def login_view (request):
       formulario = LoginForm()
   ctx = {'formulario':formulario}
   return render_to_response ('home/login.html', ctx,context_instance=RequestContext(request))
+
+
+def logout(request):
+  try:
+    del request.session['username']
+  except KeyError:
+    pass
+    return HttpResponseRedirect(reverse('home.views.home_view'))
