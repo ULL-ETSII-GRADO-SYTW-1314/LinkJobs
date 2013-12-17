@@ -1,6 +1,12 @@
-from django.shortcuts import render_to_response
+from home.models import User
+from home.forms import ContactForm,UserForm, LoginForm
+from django.http import HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from home.forms import UserForm, LoginForm, ContactForm
+from django.shortcuts import redirect
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.core.mail import EmailMultiAlternatives #para enviar emails HTML
 
 def home_view(request):
 	return render_to_response('home/index.html',context_instance=RequestContext(request))
