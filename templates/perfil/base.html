@@ -41,16 +41,16 @@
       <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
-            <a class="brand" href="{}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
+            <a class="brand" href="{% url vista_noticias user.username %}"><img src="/static/img/logoLinkJobs.png" width="111" height="30" alt="LinkJobs logo"/></a>
             <!-- Start: Primary navigation -->
             <div class="nav-collapse collapse">        
               <ul class="nav pull-left">
-		            <li><a href="{}">Mi Perfil</a></li>
-		            <li><a href="{}">Following</a></li>
-                <li><a href="{}">Followers</a></li>
+		            <li><a href="{% url vista_perfil user.username %}">Mi Perfil</a></li>
+		            <li><a href="{% url vista_quien_sigues user.username %}">Following</a></li>
+                <li><a href="{% url vista_logout  %}">Followers</a></li>
               </ul>
               <ul class="nav pull-right">
-                <li><a href="{}">Cerrar sesión</a></li>
+                <li><a href="{% url vista_logout %}">Cerrar sesión</a></li>
               </ul>
             </div>
           </div>   
