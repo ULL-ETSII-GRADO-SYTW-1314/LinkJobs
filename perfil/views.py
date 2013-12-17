@@ -7,6 +7,12 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+def home_noticias(request, username):
+	if antesdeLogin(request):
+	else:
+		HttpResponseRedirect(reverse('home.views.home_view'))
+
+
 def ver_perfil(request,username, id):
 	if antesdeLogin(request):
 		user = get_object_or_404 (User,id=id)
@@ -24,9 +30,6 @@ def ver_perfil(request,username, id):
 
 	else:
 		return HttpResponseRedirect(reverse('home.views.login'))
-
-
-
 
 
 def view_curriculum(request, username):
