@@ -15,6 +15,29 @@ def subirimagen(request, username):
 		MicroPost = FormMicropost(request.POST)
 		FormularioImagen = ImagenForm(request.POST, request.FILES)
 		user = get_object_or_404 (User,username=request.session['username'])
+		if user.curriculum == "":
+			completado = True
+		allUser = User.objects.order_by('?').exclude(username=request.session['username'])[:4]
+		if request.method == 'POST':
+			if FormularioImagen.is_valid():
+				photo = FormularioImagen.cleaned_data['photo']
+				user.InsertarFoto(photo)
+				user.save()
+				ctx = {'completado':completado,'MicroPost':MicroPost,'user':user, 'allUser': allUser, 'FormularioImagen': FormularioImagen, 'valido': valido}
+				return render (request,'appstatic/valid.html',ctx)
+			if MicroPost.is_valid():
+				m = Micropost()
+				post = MicroPost.cleaned_data['post']
+				today = datetime.now()
+				m.insertar(user,post,today)
+				m.save()
+				Mostrar = Micropost.objects.filter(user=user.id).order_by('date')
+		else:
+			MicroPost = FormMicropost()
+			FormularioImagen = ImagenForm()
+		Mostrar = Micropost.objects.filter(user=user.id).order_by('date')
+		ctx = {'completado':completado, 'valido': valido, 'allUser':allUser,'MicroPost':MicroPost, 'user':user, 'FormularioImagen':FormularioImagen, 'Mostrar': Mostrar}
+		return render (request,'appstatic/valid.html',ctx)
 	else
 		HttpResponseRedirect(reverse('home.views.home_view'))
 
