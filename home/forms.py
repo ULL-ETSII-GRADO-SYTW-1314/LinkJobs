@@ -53,3 +53,12 @@ class UserForm(forms.Form):
     if email1_found.count() > 0:
       raise forms.ValidationError("Este Email ya existe")
     return email1
+    
+class ImagenForm(forms.Form):
+    photo = forms.FileField(label="Foto")
+
+class CompleteForm(forms.Form):
+  curriculum  = forms.CharField(label="Complete el Curriculum: ",widget=forms.Textarea())
+  profesion   = forms.CharField(label="Introduzca Profesion: ", widget=forms.TextInput())
+
+    
