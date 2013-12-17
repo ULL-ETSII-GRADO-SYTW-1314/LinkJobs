@@ -7,6 +7,16 @@ from home.models import User
 class LoginForm(forms.Form):
     username  = forms.RegexField(label="Nombre de Usuario", max_length=30, regex=r'^[\w.@+-]+$', error_messages = {'invalid': "Este valor sólo puede contener letras, números y caracteres @/./+/-/_"})
     password  = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+
+    def clean(self):
+      cd = self.cleaned_data
+      username = cd.get('username')
+      password = cd.get("password")
+      
+      users_found = User.objects.filter(username=username,password1=password)
+      if users_found.count() == 0:
+        raise forms.ValidationError("Has introducido un correo electrónico o una contraseña incorrecta.")
+      return cd
     
 class ContactForm(forms.Form):
    email= forms.EmailField(label="Email",widget=forms.TextInput())
