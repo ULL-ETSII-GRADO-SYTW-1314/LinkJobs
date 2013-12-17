@@ -7,6 +7,22 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+def seguir (request, username, id):
+	if antesdeLogin(request):
+		user = get_object_or_404 (User,username=request.session['username'])
+		sigue_a = get_object_or_404 (User,id=id)
+		Follower = Follow();
+		Comprobar = Follow.objects.filter(user_id=user.id).filter(follow_id=id)
+		if len(Comprobar) == 0:
+			Follower.InsertarSeguidor(user, sigue_a)
+			Follower.save()
+
+		return HttpResponseRedirect(reverse('perfil.views.quien_sigues',args=[request.session['username']]))
+	else:
+		HttpResponseRedirect(reverse('home.views.home_view'))	
+
+
+
 def home_noticias(request, username):
 	if antesdeLogin(request):
 		post = ""
