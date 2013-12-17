@@ -33,7 +33,7 @@ class User(models.Model):
 	def InsertarCurriculum(self, a, b):
 		self.curriculum = a
 		self.profesion = b
-		
+
 class Follow(models.Model):
 	user = models.ForeignKey(User, related_name='usuario')
 	follow = models.ForeignKey(User, related_name='me_siguen')
@@ -41,3 +41,14 @@ class Follow(models.Model):
 	def InsertarSeguidor(self, a, b):
 		self.user = a
 		self.follow = b
+		
+class Micropost(models.Model):
+	"""Micropost Model"""
+	user = models.ForeignKey(User)
+	post = models.CharField(max_length=180)
+	date = models.DateTimeField(auto_now_add=True, blank=True)
+
+	def insertar(self, a, b, c):
+		self.user = a
+		self.post = b
+		self.date = c
