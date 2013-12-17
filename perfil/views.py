@@ -7,6 +7,12 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+def quien_sigues (request, username):
+	if antesdeLogin(request):
+	else:
+		HttpResponseRedirect(reverse('home.views.home_view'))
+
+
 def seguir (request, username, id):
 	if antesdeLogin(request):
 		user = get_object_or_404 (User,username=request.session['username'])
