@@ -7,6 +7,15 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+def ver_perfil(request,username, id):
+	if antesdeLogin(request):
+
+	else:
+		return HttpResponseRedirect(reverse('home.views.login'))
+
+
+
+
 
 def view_curriculum(request, username):
 	if antesdeLogin(request):
