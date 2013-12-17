@@ -7,6 +7,23 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+
+def view_curriculum(request, username):
+	if antesdeLogin(request):
+		post = ""
+		valido = False;
+		completado = False;
+		FormularioImagen = ImagenForm(request.POST, request.FILES)
+		user = get_object_or_404 (User,username=request.session['username'])
+	else:
+		HttpResponseRedirect(reverse('GUsers.views.home_view'))
+
+
+
+
+
+
+
 def ver_su_curriculum(request, username, id):
 	if antesdeLogin(request):
 		user = get_object_or_404 (User,id=id)
