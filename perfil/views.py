@@ -7,6 +7,15 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+def ver_su_curriculum(request, username, id):
+	if antesdeLogin(request):
+		user = get_object_or_404 (User,id=id)
+
+	else:
+
+
+
+
 def subirimagen(request, username):
 	if antesdeLogin(request):
 		post = ""
@@ -24,7 +33,7 @@ def subirimagen(request, username):
 				user.InsertarFoto(photo)
 				user.save()
 				ctx = {'completado':completado,'MicroPost':MicroPost,'user':user, 'allUser': allUser, 'FormularioImagen': FormularioImagen, 'valido': valido}
-				return render (request,'appstatic/valid.html',ctx)
+				return render (request,'perfil/valid.html',ctx)
 			if MicroPost.is_valid():
 				m = Micropost()
 				post = MicroPost.cleaned_data['post']
@@ -37,8 +46,8 @@ def subirimagen(request, username):
 			FormularioImagen = ImagenForm()
 		Mostrar = Micropost.objects.filter(user=user.id).order_by('date')
 		ctx = {'completado':completado, 'valido': valido, 'allUser':allUser,'MicroPost':MicroPost, 'user':user, 'FormularioImagen':FormularioImagen, 'Mostrar': Mostrar}
-		return render (request,'appstatic/valid.html',ctx)
-	else
+		return render (request,'perfil/valid.html',ctx)
+	else:
 		HttpResponseRedirect(reverse('home.views.home_view'))
 
 
