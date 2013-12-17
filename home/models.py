@@ -33,3 +33,11 @@ class User(models.Model):
 	def InsertarCurriculum(self, a, b):
 		self.curriculum = a
 		self.profesion = b
+		
+class Follow(models.Model):
+	user = models.ForeignKey(User, related_name='usuario')
+	follow = models.ForeignKey(User, related_name='me_siguen')
+
+	def InsertarSeguidor(self, a, b):
+		self.user = a
+		self.follow = b
