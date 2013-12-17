@@ -15,6 +15,20 @@ def view_curriculum(request, username):
 		completado = False;
 		FormularioImagen = ImagenForm(request.POST, request.FILES)
 		user = get_object_or_404 (User,username=request.session['username'])
+		if user.curriculum == "":
+			completado = True
+		allUser = User.objects.order_by('?').exclude(username=request.session['username'])[:4]
+		if request.method == 'POST':
+			if FormularioImagen.is_valid():
+				photo = FormularioImagen.cleaned_data['photo']
+				user.InsertarFoto(photo)
+				user.save()
+				ctx = {'completado':completado,'user':user, 'allUser': allUser, 'FormularioImagen': FormularioImagen, 'valido': valido}
+				return render (request,'appstatic/ver_curriculum.html',ctx)
+		else:
+			FormularioImagen = ImagenForm()
+		ctx = {'completado':completado,'valido': valido, 'allUser':allUser, 'user':user, 'FormularioImagen':FormularioImagen}
+		return render (request,'appstatic/ver_curriculum.html',ctx)
 	else:
 		HttpResponseRedirect(reverse('GUsers.views.home_view'))
 
