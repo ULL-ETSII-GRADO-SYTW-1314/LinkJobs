@@ -9,6 +9,30 @@ from datetime import datetime
 
 def home_noticias(request, username):
 	if antesdeLogin(request):
+		post = ""
+		valido = False;
+		completado = False;
+		FormularioImagen = ImagenForm(request.POST, request.FILES)
+		user = get_object_or_404 (User,username=request.session['username'])
+
+		id_seguidores = Follow.objects.filter(user = user.id).values_list('follow', flat=True)
+		all_micropost = Micropost.objects.filter(user_id__in=id_seguidores)
+
+
+		if user.curriculum == "":
+			completado = True
+		allUser = User.objects.order_by('?').exclude(username=request.session['username'])[:4]
+		if request.method == 'POST':
+			if FormularioImagen.is_valid():
+				photo = FormularioImagen.cleaned_data['photo']
+				user.InsertarFoto(photo)
+				user.save()
+				ctx = {'all_micropost':all_micropost,'completado':completado,'user':user, 'allUser': allUser, 'FormularioImagen': FormularioImagen, 'valido': valido}
+				return render (request,'perfil/noticias.html',ctx)
+		else:
+			FormularioImagen = ImagenForm()
+		ctx = {'all_micropost':all_micropost,'completado':completado,'valido': valido, 'allUser':allUser, 'user':user, 'FormularioImagen':FormularioImagen}
+		return render (request,'perfil/noticias.html',ctx)
 	else:
 		HttpResponseRedirect(reverse('home.views.home_view'))
 
