@@ -97,7 +97,7 @@ def login_view (request):
           m = User.objects.get(username=request.POST['username'])
           username = formulario.cleaned_data['username']
           request.session['username'] = m.username
-          return HttpResponseRedirect(reverse('appstatic.views.user_details', args=[m.username]))
+          return HttpResponseRedirect(reverse('perfil.views.user_details', args=[m.username]))
 
   else:
       formulario = LoginForm()
