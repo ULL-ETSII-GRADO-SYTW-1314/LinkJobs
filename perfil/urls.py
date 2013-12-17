@@ -7,6 +7,7 @@ urlpatterns=patterns('perfil.views',
 	url (r'^(?P<username>\w+)/curriculum/(?P<completado>\w+)/$','subircurriculum',name='vista_curriculum'),
 	url (r'^(?P<username>\w+)/ver_curriculum/$','view_curriculum',name='vista_curriculum'),
 	url (r'^(?P<username>\w+)/perfil/(?P<id>\w+)$','ver_perfil',name='vista_perfil'),
+	url (r'^(?P<username>\w+)/noticias/$','home_noticias',name='vista_noticias'),
 )
 
 
