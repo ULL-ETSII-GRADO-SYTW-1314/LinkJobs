@@ -24,14 +24,39 @@ def view_curriculum(request, username):
 				user.InsertarFoto(photo)
 				user.save()
 				ctx = {'completado':completado,'user':user, 'allUser': allUser, 'FormularioImagen': FormularioImagen, 'valido': valido}
-				return render (request,'appstatic/ver_curriculum.html',ctx)
+				return render (request,'perfil/ver_curriculum.html',ctx)
 		else:
 			FormularioImagen = ImagenForm()
 		ctx = {'completado':completado,'valido': valido, 'allUser':allUser, 'user':user, 'FormularioImagen':FormularioImagen}
-		return render (request,'appstatic/ver_curriculum.html',ctx)
+		return render (request,'perfil/ver_curriculum.html',ctx)
 	else:
-		HttpResponseRedirect(reverse('GUsers.views.home_view'))
+		HttpResponseRedirect(reverse('home.views.home_view'))
 
+
+def subircurriculum(request,username, completado):
+	if antesdeLogin(request):
+		valido = False
+		completado = False;
+		FormularioImagen = ImagenForm(request.POST, request.FILES)
+		FCurriculum = CompleteForm(request.POST)
+		user = get_object_or_404 (User,username=request.session['username'])
+		allUser = User.objects.order_by('?').exclude(username=request.session['username'])[:4]
+		if request.method == "POST":
+			if FCurriculum.is_valid():
+				curriculum = FCurriculum.cleaned_data['curriculum']
+				profesion = FCurriculum.cleaned_data['profesion']
+				user.InsertarCurriculum(curriculum, profesion)
+				user.save()
+				completado = True
+				return HttpResponseRedirect(reverse('perfil.views.user_details',args=[request.session['username']]))
+		else:
+			MicroPost = FormMicropost()
+			FormularioImagen = ImagenForm()
+			FCurriculum = CompleteForm()
+		ctx = {'valido': valido, 'allUser':allUser, 'user':user, 'FormularioImagen':FormularioImagen,'FCurriculum':FCurriculum}
+		return render (request,'perfil/curriculum.html',ctx)
+	else:
+		return HttpResponseRedirect(reverse('home.views.login'))
 
 
 
