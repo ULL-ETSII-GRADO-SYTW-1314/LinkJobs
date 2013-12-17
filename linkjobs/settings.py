@@ -4,8 +4,9 @@ import os
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
-# DATABASE_ENGINE = 'postgresql_psycopg2'
-# DATABASE_NAME = os.path.join(SITE_ROOT, 'db')
+DATABASE_ENGINE = 'postgresql_psycopg2'
+DATABASE_NAME = os.path.join(SITE_ROOT, 'db')
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -34,7 +35,7 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-Es'
 
 SITE_ID = 1
 

@@ -82,7 +82,7 @@ def signup_view(request):
 
       #fin configuracion del servidor GMAIL
 
-      return HttpResponseRedirect(reverse('home.views.login'))
+      return HttpResponseRedirect(reverse('home.views.login_view'))
   else:
     formulario = UserForm()
   ctx = {'formulario':formulario}
@@ -110,4 +110,4 @@ def logout(request):
     del request.session['username']
   except KeyError:
     pass
-    return HttpResponseRedirect(reverse('home.views.home_view'))
+  return HttpResponseRedirect(reverse('home.views.home_view'))
