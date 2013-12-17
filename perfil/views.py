@@ -7,6 +7,14 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+def borrar_post (request, id):
+	if antesdeLogin(request):
+		Micropost.objects.filter(id=id).delete()
+		return HttpResponseRedirect(reverse('post.views.user_details',args=[request.session['username']]))
+	else:
+		return HttpResponseRedirect(reverse('home.views.login'))
+
+
 def quien_sigues (request, username):
 	if antesdeLogin(request):
 		post = ""
