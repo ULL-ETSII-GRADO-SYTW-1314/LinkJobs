@@ -7,6 +7,34 @@ from django.core.urlresolvers import reverse
 from home.models import User, Follow, Micropost
 from datetime import datetime
 
+
+def quien_te_sigue(request, username):
+        if antesdeLogin(request):
+                valido = False;
+                completado = False;
+                FormularioImagen = ImagenForm(request.POST, request.FILES)
+                user = get_object_or_404 (User,username=request.session['username'])
+                if user.curriculum == "":
+                        completado = True
+                allUser = User.objects.order_by('?').exclude(username=request.session['username'])[:4]
+
+                id_te_siguen = Follow.objects.filter(follow = user.id).values_list('user', flat=True)
+                siguen = User.objects.filter(id__in=id_te_siguen)
+                
+                if request.method == 'POST':
+                        if FormularioImagen.is_valid():
+                                photo = FormularioImagen.cleaned_data['photo']
+                                user.InsertarFoto(photo)
+                                user.save()
+                                ctx = {'siguen': siguen, 'completado':completado,'user':user, 'allUser': allUser, 'FormularioImagen': FormularioImagen, 'valido': valido}
+                                return render (request,'perfil/tesiguen.html',ctx)
+                else:
+                        FormularioImagen = ImagenForm()
+                ctx = {'siguen':siguen, 'completado':completado,'valido': valido, 'allUser':allUser, 'user':user, 'FormularioImagen':FormularioImagen}
+                return render (request,'perfil/tesiguen.html',ctx)
+        else:
+                HttpResponseRedirect(reverse('home.views.home_view'))
+
 def borrar_post (request, id):
 	if antesdeLogin(request):
 		Micropost.objects.filter(id=id).delete()
